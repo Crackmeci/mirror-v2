@@ -16,10 +16,6 @@
   header('Content-Type: application/json');
   }
 
-  Router::run('/settings', function () {
-    echo json_encode($GLOBALS["settings"]->read()->fetch(PDO::FETCH_ASSOC));
- });
-
   Router::run('/list/:id?/:id?', function ($page = 1,$limit = 20) {
      echo json_encode($GLOBALS["zones"]->readZones($page,$limit)->fetchAll(PDO::FETCH_ASSOC));
   },["page","limit"]);
